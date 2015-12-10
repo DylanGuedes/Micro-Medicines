@@ -20,4 +20,64 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      medicine:
+        one: "Medicamento"
+        other: "Medicamentos"
+      attributes:
+        medicine:
+          name: "nome"
+          description: "descrição"
+          amount: "quantidade"
+          shot: "dose"
+          max_shot: "dosagem máxima"
+    errors:
+      template:
+        header:
+          one:   "1 erro impediu esse %{model} de ser salvo"
+          other: "%{count} erros impediram esse %{model} de ser salvo"
+        body:    "Há problemas com os seguintes campos:"
+      models:
+        medicine:
+          attributes:
+            id:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            name:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            description:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            amount:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            shot:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            max_shot:
+              blank: "é necessário"
+              not_a_number: "não é um número"
+              greater_than: "é muito curto"
+              greater_than_or_equal_to: "deve ser maior ou igual que %{count}"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+        shot:
+          attributes:
+            shot_date:
+              blank: "é necessário"
