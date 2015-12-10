@@ -38,7 +38,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @medicine.shots.each do |s| %>
+    <% @medicine.sort_shots.each do |s| %>
       <tr>
         <td><%= s.shot_date.strftime('%H:%M:%S') %></td>
         <td><%= link_to 'Remover', s, method: :delete, data: { confirm: 'Tem certeza?' },  class: 'right'  %></td>
