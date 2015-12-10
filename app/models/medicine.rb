@@ -12,21 +12,26 @@ def next_shot
     now = Time.now.hour
 
     if self.shots.nil?
-      return -1
+      return '-'
     end
 
-    a = self.shots
-    a.sort
-    a.each do |p|
-      puts "NOW: #{now}"
-      puts "SHOT_DATE: #{p.shot_date.hour}"
-      if p.shot_date.hour > now
-        return "#{p.shot_date.hour - now}h"
-      end
-    end
+    shots = self.sort_shots
+		if (shots.last.shot_date.hour > now)
+			return shots.last.shot_date.strftime("%H:%M:%S")
+		else
+			shots.each do |s|
+	      if s.shot_date.hour < now
+	        return s.shot_date.strftime("%H:%M:%S")
+	      end
+			end
+		end
 
     return '-'
   end
+
+	def sort_shots
+		self.shots.sort_by { |s| s.shot_date }
+	end
 
 private
   def format_date time
