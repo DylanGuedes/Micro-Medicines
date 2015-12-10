@@ -32,21 +32,20 @@
 <table class="responsive-table">
   <thead>
     <tr>
-      <th>
-        Horários da dose
-        <%= link_to 'Cadastrar novo horário', new_shot_path(medicine_id: @medicine.id), class: 'btn right' %>
-      </th>
+      <th> Horários da dose </th>
+      <th> <%= link_to 'Cadastrar novo horário', new_shot_path(medicine_id: @medicine.id), class: 'btn right' %> </th>
     </tr>
   </thead>
   <tbody>
     <% @medicine.shots.each do |s| %>
       <tr>
         <td><%= s.shot_date.strftime('%H:%M:%S') %></td>
-        <td><%= link_to 'Remover', s, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <td><%= link_to 'Remover', s, method: :delete, data: { confirm: 'Tem certeza?' },  class: 'right'  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= link_to 'Resetar Estoque', reset_path(id: @medicine.id), class: 'btn blue' %>
 <%= link_to 'Voltar', root_path, class: 'btn left red' %>
 <%= link_to 'Editar', edit_medicine_path(@medicine), class: 'btn right' %>

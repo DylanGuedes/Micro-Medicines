@@ -1,3 +1,5 @@
+require 'serialport'
+
 class MedicinesController < ApplicationController
   before_action :set_medicine, only: [:show, :edit, :update, :destroy]
 
@@ -61,6 +63,20 @@ class MedicinesController < ApplicationController
     end
   end
 
+  def reset_amount
+    @medicine = Medicine.find(params[:id])
+    @medicine.amount = 40
+    begin
+      sp = SerialPort.new('/dev/ttyACM1')
+      sp.write("9")
+      notice = 'O MSP foi atualizado com sucesso'
+    rescue
+      notice = 'O MSP não foi encontrado.'
+    end
+    @medicine.save
+    redirect_to @medicine, notice: notice
+  end
+
   def decrease_amount
     @medicine = Medicine.find(params[:id])
     @medicine.amount -= 1
@@ -70,6 +86,13 @@ class MedicinesController < ApplicationController
 
   def get_amount
     medicine  = Medicine.find params[:id]
+    if medicine.shots.first.shot_date.hour == Time.now.hour
+      medicine.shots.first.shot_date += 12.hour
+      sp = SerialPort.new('/dev/ttyACM1')
+      sp.write("8")
+    else
+
+    end
     render :json => {:amount=>medicine.amount}
   end
 
