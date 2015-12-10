@@ -8,6 +8,9 @@
 <body>
 
 <%= render 'layouts/header' %>
+<% if notice.present? %>
+  <p id="notice", class="card-panel indigo lighten-3 center"><%= notice %></p>
+<% end %>
 <div class="container">
   <%= yield %>
 </div>
