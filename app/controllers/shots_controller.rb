@@ -29,7 +29,7 @@ class ShotsController < ApplicationController
 
     respond_to do |format|
       if @shot.save
-        format.html { redirect_to @shot.medicine, notice: 'Shot was successfully created.' }
+        format.html { redirect_to @shot.medicine, notice: 'Horário registrado com sucesso.' }
         format.json { render :show, status: :created, location: @shot }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ShotsController < ApplicationController
   def update
     respond_to do |format|
       if @shot.update(shot_params)
-        format.html { redirect_to @shot, notice: 'Shot was successfully updated.' }
+        format.html { redirect_to @shot, notice: 'Horário atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @shot }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ShotsController < ApplicationController
   def destroy
     @shot.destroy
     respond_to do |format|
-      format.html { redirect_to shots_url, notice: 'Shot was successfully destroyed.' }
+      format.html { redirect_to shots_url, notice: 'Horário removido com sucesso.' }
       format.json { head :no_content }
     end
   end
