@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/get_amount/:id" => "medicines#get_amount"
 
   get '/medicines/decrease_amount/:id' => 'medicines#decrease_amount'
+  get '/reset' => 'medicines#reset_amount'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
