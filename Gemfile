@@ -45,3 +45,4 @@ group :development, :test do
 end
 
 gem 'jquery-timepicker-rails'
+gem 'dynamic_form'
