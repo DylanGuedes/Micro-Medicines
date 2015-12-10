@@ -42,6 +42,7 @@
     <% @medicine.shots.each do |s| %>
       <tr>
         <td><%= s.shot_date.strftime('%H:%M:%S') %></td>
+        <td><%= link_to 'Remover', s, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
